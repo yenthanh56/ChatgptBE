@@ -14,6 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // router
+app.use("/v1/hello", (req, res) => {
+	return res.status(200).json({
+		msg: "halo",
+	});
+});
 router(app);
 
 // database

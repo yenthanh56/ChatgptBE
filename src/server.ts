@@ -13,6 +13,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(function (req, res, next) {
+	// Website you wish to allow to connect
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader("Access-Control-Allow-Credentials", "true");
+	res.setHeader("Access-Control-Max-Age", "1800");
+	res.setHeader("Access-Control-Allow-Headers", "content-type");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"PUT, POST, GET, DELETE, PATCH, OPTIONS"
+	);
+
+	// Pass to next layer of middleware
+	next();
+});
+
 // router
 app.use("/v1/hello", (req, res) => {
 	return res.status(200).json({

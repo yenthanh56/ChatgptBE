@@ -11,11 +11,11 @@ export const botController = async (req: Request, res: Response) => {
 		const response = await openai.createCompletion({
 			model: "text-davinci-003",
 			prompt: prompt,
-			temperature: 1,
+			// temperature: 1,
 			max_tokens: 500,
-			top_p: 0,
-			frequency_penalty: 0,
-			presence_penalty: 0,
+			// top_p: 0,
+			// frequency_penalty: 0,
+			// presence_penalty: 0,
 		});
 
 		return res.status(200).send({

@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-	apiKey: "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",
+	apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 export const botController = async (req: Request, res: Response) => {

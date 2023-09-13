@@ -12,7 +12,7 @@ export const botController = async (req: Request, res: Response) => {
 			model: "text-davinci-003",
 			prompt: prompt,
 			// temperature: 1,
-			max_tokens: 500,
+			max_tokens: 50,
 			// top_p: 0,
 			// frequency_penalty: 0,
 			// presence_penalty: 0,

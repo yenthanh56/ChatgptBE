@@ -1,7 +1,7 @@
 import express, { Express, Response, Request } from "express";
 import * as dotenv from "dotenv";
 import cors from "cors";
-
+import cookieParser from "cookie-parser";
 import router from "./router/index";
 
 dotenv.config();
@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cookieParser());
 // router
 app.use("/v1/hello", (req, res) => {
 	return res.status(200).json({

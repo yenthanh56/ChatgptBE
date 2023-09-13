@@ -8,11 +8,6 @@ dotenv.config();
 const app: Express = express();
 const PORT = 3000;
 
-// middle
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
 app.use(function (req, res, next) {
 	// Website you wish to allow to connect
 	res.setHeader("Access-Control-Allow-Origin", "*");
@@ -27,6 +22,10 @@ app.use(function (req, res, next) {
 	// Pass to next layer of middleware
 	next();
 });
+// middle
+app.use(cors({ origin: "*" }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // router
 app.use("/v1/hello", (req, res) => {
